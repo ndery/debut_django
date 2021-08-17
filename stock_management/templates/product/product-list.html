@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="mt-4">
+
+
+  <div class="row">
+    <div class="col">
+        <div class="float-right mt-4">
+            <a href="{% url 'add_product' %}" class="btn btn-info">Ajouter un produit</a>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    
+      {% for product in products %}
+      <div class="col-md-3">
+      <div class="card-group mb-5">
+      <div class="card">
+        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">Prix: {{ product.price }}</p>
+          <p class="card-text">Quantité en stock: {{ product.quantity }}</p>
+          <a href="{% url 'detail_product' product.id %}" class="btn btn-primary">Voir</a>
+          <a href="{% url 'edit_product' product.id %}" class="btn btn-warning">Modifier</a>
+          <a href="{% url 'remove_product' product.id %}" class="btn btn-danger">Supprimer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+      {% empty %}
+
+      <p class="text-center">
+        Aucun produit trouvé!
+      </p>
+
+      {% endfor %}
+
+    
+  </div>
+</div>
+
+{% endblock %} 
