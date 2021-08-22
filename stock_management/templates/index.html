@@ -47,45 +47,26 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>Identifiant</th>
+                        <th>Produit</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                        <th>Type</th>
                     </tr>
                 </thead>
 
                 <tbody>
-
+                    {% for spent in spent %}
+                      
+                   
                     <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                        <td>2009/01/12</td>
-                        <td>$86,000</td>
-                    </tr>
-
-                    <tr>
-                        <td>Colleen Hurst</td>
-                        <td>Javascript Developer</td>
-                        <td>San Francisco</td>
-                        <td>39</td>
-                        <td>2009/09/15</td>
-                        <td>$205,500</td>
-                    </tr>
-
-
-                    <tr>
-                        <td>Brenden Wagner</td>
-                        <td>Software Engineer</td>
-                        <td>San Francisco</td>
-                        <td>28</td>
-                        <td>2011/06/07</td>
-                        <td>$206,850</td>
-                    </tr>
-
+                        <td>{{ spent.id }}</td>
+                        <td>{{ spent.product }}</td>
+                        <td>{{ spent.quantity }}</td>
+                        <td>{{ spent.price }}</td>
+                        <td>{{ spent.transaction_type }}</td>
+                   </tr>
+                        {% endfor %}
                 </tbody>
             </table>
         </div>
@@ -95,57 +76,39 @@
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table mr-1"></i>
-        Dernieres Ventes
+        Dernieres Revenus
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                    </tr>
-                </thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Prix</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
 
-                <tbody>
-
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                        <td>2009/01/12</td>
-                        <td>$86,000</td>
-                    </tr>
-
-                    <tr>
-                        <td>Colleen Hurst</td>
-                        <td>Javascript Developer</td>
-                        <td>San Francisco</td>
-                        <td>39</td>
-                        <td>2009/09/15</td>
-                        <td>$205,500</td>
-                    </tr>
-
-
-                    <tr>
-                        <td>Brenden Wagner</td>
-                        <td>Software Engineer</td>
-                        <td>San Francisco</td>
-                        <td>28</td>
-                        <td>2011/06/07</td>
-                        <td>$206,850</td>
-                    </tr>
+            <tbody>
+                {% for spent in income %}
+                  
+               
+                <tr>
+                    <td>{{ spent.id }}</td>
+                    <td>{{ spent.product }}</td>
+                    <td>{{ spent.quantity }}</td>
+                    <td>{{ spent.price }}</td>
+                    <td>{{ spent.transaction_type }}</td>
+               </tr>
+                    {% endfor %}
 
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-</div>
+
 
 {% endblock content %} 

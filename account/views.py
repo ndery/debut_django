@@ -1,3 +1,4 @@
+from product.forms import ProductForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, RegisterForm
@@ -11,10 +12,11 @@ def login_user(request):
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
+            username1=request.POST['username']
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect("/")
+                return redirect("/" , {"username1" : username1})
     else:
         form = LoginForm()
     return render(request, "account/login.html", {"form": form})
